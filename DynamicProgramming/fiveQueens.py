@@ -9,13 +9,13 @@
 # param: board : 2d array with location
 # of 0 to 5 queens
 # ----------------------------------------
-def solve(board, queens, i, j):
+def solve(board, queens, i, j, size):
     # base case: if all 5 queens are placed, return
     if queens == 5:
         return board
     else:
-        while (i < 8):
-            while(j < 8):
+        while (i < size):
+            while(j < size):
                 board[i][j] = 1
                 check(board)
         return solve(board);
@@ -23,14 +23,14 @@ def solve(board, queens, i, j):
 # -----------------------------------------
 # Check board for correct queen placement
 # -----------------------------------------
-def check(board):
-    for (i in range(8)):
+def check(board, size):
+    for (i in range(size)):
         if (board)
 
 
 # -----------------------------------------
 def main ():
-    
+    size = 8 
     chessboard = [][]
 
 # -----------------------------------------
