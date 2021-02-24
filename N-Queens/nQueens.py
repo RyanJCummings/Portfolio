@@ -4,10 +4,7 @@
 #-----------------------------------------
 
 
-# -----------------------------------------
 # Initialize Chessboard
-# -----------------------------------------
-
 def initialize_board(size):
     board = [[0 for i in range(size)] for j in range(size)]
     print("Board initialized")
@@ -15,21 +12,17 @@ def initialize_board(size):
     
     return board
 
-# -----------------------------------------
-# Print chessboard
-# -----------------------------------------
 
+# Print chessboard
 def print_board(board, size):
     for i in range(size):
         print(board[i])
     print()
 
-# ----------------------------------------
+
 # Uses backtracking algorithm
 # to solve problem for given board
 # and number of queens
-# ----------------------------------------
-
 def place_queens(board, queens, row, column, size):
     # base case: if all 5 queens are placed, return
     """if queens == 5:
@@ -42,17 +35,14 @@ def place_queens(board, queens, row, column, size):
                 check(board)
         return solve(board);"""
 
-    board[0][0] = 1
+    board[1][0] = 1
     print("Queen added")
     print_board(board, size)
     return check(board, size, row , column)
 
-# -----------------------------------------
-# Check board for correct queen placement
-# -----------------------------------------
 
+# Check board for correct queen placement
 def check(board, size, row, col):
-    pass
     # Check row
     for i in range(size):
         if board[i][col] == 1:
@@ -67,14 +57,13 @@ def check(board, size, row, col):
     
     # If all checks pass, return true
     return True
-# -----------------------------------------
 
+# -----------------------------------------
 def main():
     # Setup
     size = 8
     queens = 5
     chessboard = initialize_board(size)
     print(place_queens(chessboard, queens, 0, 0, size))
-# -----------------------------------------
 
 main()
