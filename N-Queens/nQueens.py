@@ -35,11 +35,14 @@ def place_queens(board, queens, row, column, size):
                 check(board)
         return solve(board);"""
 
-    board[1][0] = 1
+    board[3][1] = 1
+    #board[row][column] = 1
+    board[2][2] = 1
     print("Queen added")
     print_board(board, size)
-    return check(board, size, row , column)
-
+    #while check(board, size, row , column) == False:
+    #    return place_queens(board, queens, 
+    return check(board, size, 2, 2)
 
 # Check board for correct queen placement
 def check(board, size, row, col):
@@ -47,6 +50,7 @@ def check(board, size, row, col):
     counter = row
     previous_row = row - 1
     previous_col = col - 1
+    next_row = row + 1
 
     # Check row
     for i in range(size):
@@ -59,12 +63,18 @@ def check(board, size, row, col):
             return False
     
     # Check diagonals
-    while counter > previous_row && counter > previous_col:
+    while counter > previous_row and counter > previous_col and next_row < size:
         if board[previous_row][previous_col] == 1:
             return False
-        # update limits and iterate
+
+        elif board[next_row][previous_col] == 1:
+            return False
+
+        # update limits and iterate diagonal check
         previous_col -= 1
-        previous_col -= 1
+        previous_row -= 1
+        next_row += 1
+        counter -= 1
 
     # If all checks pass, return true
     return True
