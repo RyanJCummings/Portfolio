@@ -3,6 +3,8 @@
 # to solve the N-Queens problem
 #-----------------------------------------
 
+import sys
+
 
 # Initialize Chessboard
 def initialize_board(size):
@@ -24,7 +26,7 @@ def print_board(board, size):
 # to solve problem for given board
 # and number of queens
 def place_queens(board, queens, row, column, size):
-    # base case: if all 5 queens are placed, return
+    # base case: if all queens are correctly placed, return
     """if queens == 5:
         return board
     else:
@@ -43,6 +45,7 @@ def place_queens(board, queens, row, column, size):
     #while check(board, size, row , column) == False:
     #    return place_queens(board, queens, 
     return check(board, size, 2, 2)
+
 
 # Check board for correct queen placement
 def check(board, size, row, col):
@@ -82,8 +85,8 @@ def check(board, size, row, col):
 # -----------------------------------------
 def main():
     # Setup
-    size = 8
-    queens = 5
+    size = int(sys.argv[1])
+    queens = int(sys.argv[2])
     chessboard = initialize_board(size)
     print(place_queens(chessboard, queens, 0, 0, size))
 
