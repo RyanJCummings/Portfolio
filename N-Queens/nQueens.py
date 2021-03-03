@@ -40,12 +40,12 @@ class Chessboard:
             for i in range(size):
                 # Place a queen, check constraints, and recursively search for solution
                 self.board[row][column] = 1
-                if check(self, row, column):
-                    return place_queens(self, 0, col += 1, queens_placed += 1)
+                if self.check(row, column):
+                    return self.place_queens(0, column + 1, queens_placed + 1)
                 else:
                     # If placement does not lead to solution, remove previous queen try next row
                     self.board[row][column] = 0
-                    return place_queens(self, row += 1, col, queens_placed)
+                    return self.place_queens(row + 1, column, queens_placed)
 
 
     # Check board for correct queen placement
@@ -87,6 +87,7 @@ if __name__ == "__main__":
     size = int(sys.argv[1])
     queens = int(sys.argv[2])
     chessboard = Chessboard(size, queens)
-    print(chessboard.place_queens(3, 3))
+    chessboard.place_queens(3, 3)
+    chessboard.print_board()
 
 
