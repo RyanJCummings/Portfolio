@@ -1,0 +1,10 @@
+# Kotlin / Gradle stuff
+.gradle
+build/
+.jar
+!gradle-wrapper.jar
+.gradletasknamecache
+
+#IDE
+.idea/
+*.iml
