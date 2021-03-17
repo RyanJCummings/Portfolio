@@ -6,6 +6,3 @@ data class Dice(var d4: Int = 0,
                 var d10: Int = 0,
                 var d12: Int = 0,
                 var d20: Int = 0)
-{
-
-}
