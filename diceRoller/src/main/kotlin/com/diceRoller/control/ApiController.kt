@@ -20,9 +20,16 @@ class ApiController {
     fun getHistory() = "Here is your history."
 
     @PostMapping("/rollDice", MediaType.APPLICATION_FORM_URLENCODED_VALUE)
-        fun handleRollInput() : ResponseEntity<String> {
-            return ResponseEntity<String>("Nice roll", HttpStatus.OK)
-        }
+    fun handleRollInput(@RequestBody dNum: String) : ResponseEntity<String> {
+        val newNum = dNum.toInt() + 2
+        print(newNum)
+        return ResponseEntity<String>(newNum.toString(), HttpStatus.OK)
+    }
+
+    @PostMapping(path = "/test",
+        consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+        MediaType.MULTIPART_FORM_DATA_VALUE},
+        produces = MediaType.APPLICATION_JSON_VALUE)
 
     // --------------------------------------------------------------
     // DELETE THIS BEFORE PRODUCTION
