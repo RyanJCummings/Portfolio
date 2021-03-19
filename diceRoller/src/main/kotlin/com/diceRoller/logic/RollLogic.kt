@@ -8,11 +8,9 @@ import kotlin.random.Random
  * Also handles tallying total.
  */
 
-class RollLogic (private val dice: Dice) {
+class RollLogic (dice: Dice) {
 
-    val diceTypes: Int = 6  // 6 types of dice in D&D not including percentile
-
-    // make data class values iterable
+    // make Dice data class values iterable
     private val diceList: List<Int> = listOf(
         dice.d4,
         dice.d6,
@@ -29,7 +27,7 @@ class RollLogic (private val dice: Dice) {
         parseIntoMap()
     }
 
-    fun parseIntoMap() {
+    private fun parseIntoMap() {
         for ((index, value) in diceList.withIndex()) {
             for (j in 0 until value) {
                 val nameAndValue: Pair<String, Int> = parseDie(index)
@@ -48,7 +46,8 @@ class RollLogic (private val dice: Dice) {
             4 -> return Pair("d12", Random.nextInt(1,12))
             5 -> return Pair("d20", Random.nextInt(1,20))
         }
-        // error no correct die type
+        // error: no correct die type
         return Pair("error", -1)
     }
+    //TODO - Tally results total
 }
