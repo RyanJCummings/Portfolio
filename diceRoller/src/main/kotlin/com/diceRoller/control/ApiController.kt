@@ -1,6 +1,8 @@
 package com.diceRoller.control
 
 import com.diceRoller.data.Comment
+import com.diceRoller.data.Dice
+import com.diceRoller.logic.RollLogic
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -26,10 +28,17 @@ class ApiController {
         return ResponseEntity<String>(newNum.toString(), HttpStatus.OK)
     }
 
-    @PostMapping(path = "/test",
+    @GetMapping("/logictest")
+    fun testlogic(): String {
+        val dice = Dice(d4 = 1, d6 = 3, d20 = 2)
+        val rollResult = RollLogic(dice)
+        return rollResult.results.toString()
+    }
+
+    /*@PostMapping(path = "/test",
         consumes = {MediaType.APPLICATION_FORM_URLENCODED_VALUE,
         MediaType.MULTIPART_FORM_DATA_VALUE},
-        produces = MediaType.APPLICATION_JSON_VALUE)
+        produces = MediaType.APPLICATION_JSON_VALUE)*/
 
     // --------------------------------------------------------------
     // DELETE THIS BEFORE PRODUCTION
