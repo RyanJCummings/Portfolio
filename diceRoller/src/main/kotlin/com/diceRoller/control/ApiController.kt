@@ -30,7 +30,7 @@ class ApiController {
 
     @GetMapping("/logictest")
     fun testlogic(): String {
-        val dice = Dice(d4 = 1, d6 = 3, d20 = 2)
+        val dice = Dice(d20 = 2)
         val rollResult = RollLogic(dice)
         return rollResult.results.toString()
     }
