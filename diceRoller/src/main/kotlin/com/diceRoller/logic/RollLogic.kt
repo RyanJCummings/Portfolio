@@ -30,21 +30,21 @@ class RollLogic (dice: Dice) {
     private fun parseIntoMap() {
         for ((index, value) in diceList.withIndex()) {
             for (j in 0 until value) {
-                val nameAndValue: Pair<String, Int> = parseDie(index)
+                val nameAndValue: Pair<String, Int> = performRoll(index)
                 results.put(nameAndValue.first + "_" + j.toString(),
                     nameAndValue.second)
             }
         }
     }
 
-    private fun parseDie(die: Int): Pair<String, Int> {
+    private fun performRoll(die: Int): Pair<String, Int> {
         when(die) {
-            0 -> return Pair("d4", Random.nextInt(1,4))
-            1 -> return Pair("d6", Random.nextInt(1,6))
-            2 -> return Pair("d8", Random.nextInt(1,8))
-            3 -> return Pair("d10", Random.nextInt(1,10))
-            4 -> return Pair("d12", Random.nextInt(1,12))
-            5 -> return Pair("d20", Random.nextInt(1,20))
+            0 -> return Pair("d4", Random.nextInt(1,5))
+            1 -> return Pair("d6", Random.nextInt(1,7))
+            2 -> return Pair("d8", Random.nextInt(1,9))
+            3 -> return Pair("d10", Random.nextInt(1,11))
+            4 -> return Pair("d12", Random.nextInt(1,13))
+            5 -> return Pair("d20", Random.nextInt(1,21))
         }
         // error: no correct die type
         return Pair("error", -1)

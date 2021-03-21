@@ -13,24 +13,25 @@ import org.springframework.web.bind.annotation.RestController
 
 
 @RestController
+@RequestMapping("/")
 class ApiController {
 
-    @GetMapping("/hello")
+    @GetMapping("hello")
     fun getHello() = "Hello, World!"
 
-    @GetMapping("/history")
+    @GetMapping("history")
     fun getHistory() = "Here is your history."
 
-    @PostMapping("/rollDice", MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+    /*@PostMapping("rollDice", MediaType.APPLICATION_FORM_URLENCODED_VALUE)
     fun handleRollInput(@RequestBody dNum: String) : ResponseEntity<String> {
         val newNum = dNum.toInt() + 2
         print(newNum)
         return ResponseEntity<String>(newNum.toString(), HttpStatus.OK)
-    }
+    }*/
 
-    @GetMapping("/logictest")
+    @GetMapping("logictest")
     fun testlogic(): String {
-        val dice = Dice(d20 = 2)
+        val dice = Dice(d4 = 1, d6 = 1, d8 = 1, d20 = 2)
         val rollResult = RollLogic(dice)
         return rollResult.results.toString()
     }
