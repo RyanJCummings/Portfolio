@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController
 @RequestMapping("/")
 class SamplePostController {
 
-    @PostMapping("postbody")
+    @PostMapping("postBody")
     fun postBody(@RequestBody fullName: String): String {
         return "Hello $fullName"
     }
