@@ -5,16 +5,22 @@
 
 int main(int argc, char *argv[]) {
 	printf("%s\n", "Hello from BST!");
-	Tree_node *node = create_node(5);
-	print_node(*node);
 	
-	free(node);
+	// Create the tree
+	Tree_node *tree = insert_node(NULL, 10);
+	insert_node(tree, 5);
+	insert_node(tree, 15);
+	print_node(tree);
+	print_node(tree->left);
+	print_node(tree->right);
+
+	free(tree);
 	return 0;
 }
 
 
-void print_node(Tree_node node) {
-	printf("Value: %d\n", node.value);
+void print_node(Tree_node *node) {
+	printf("Value: %d\n", node->value);
 	//printf("Left Child: %d\n", node.left->value);
 	//printf("Right Child: %d\n", node.right->value);
 }
@@ -33,14 +39,16 @@ Tree_node* insert_node(Tree_node* root, int value) {
 	if (root == NULL) {
 		return create_node(value);
 	}
+	
 	// if value < parent's value recur left
 	if (value < root->value) {
-		return insert_node(root->left, value);
+		root->left = insert_node(root->left, value);
+	
 	// if value > parent's value, recur right
 	} else if (value > root->value) {
-		return insert_node(root->right, value);
+		root->right = insert_node(root->right, value);
 	}	
-	// otherwise node has same key as root and is returned unchanged
+	
 	return root;
 }
 

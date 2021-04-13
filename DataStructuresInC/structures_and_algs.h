@@ -8,7 +8,7 @@ typedef struct Tree_node {
 	struct Tree_node *right;
 } Tree_node;
 
-void print_node(Tree_node);
+void print_node(Tree_node *);
 Tree_node* create_node(int);
 Tree_node* insert_node(Tree_node *, int);
 Tree_node* remove_node(int);
