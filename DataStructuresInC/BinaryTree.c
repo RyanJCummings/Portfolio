@@ -14,7 +14,7 @@ int main(int argc, char *argv[]) {
 	print_node(tree->left);
 	print_node(tree->right);
 
-	free(tree);
+	free_tree_memory(tree);
 	return 0;
 }
 
@@ -51,6 +51,20 @@ Tree_node* insert_node(Tree_node* root, int value) {
 	
 	return root;
 }
+
+// Performs in-order traversal of tree freeing memory as it goes along
+// this has the effect of deleting the entire tree while 
+// protecting against memory leaks
+void free_tree_memory(Tree_node * root) {
+	if(root == NULL) {
+		return;
+	} else {
+		free_tree_memory(root->left);
+		free_tree_memory(root->right);
+		free(root);
+	}
+}
+
 
 /*Tree_node remove_node(int value) {
 	// Do Stuff

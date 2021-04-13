@@ -12,6 +12,15 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
-.PHONY: clean
+.PHONY: clean valgrind
 clean:
 	rm -rf $(OBJS) $(TARGET) *~
+	rm valgrind-out.txt
+
+valgrind:
+	valgrind --leak-check=full \
+         --show-leak-kinds=all \
+         --track-origins=yes \
+         --verbose \
+         --log-file=valgrind-out.txt \
+         ./$(TARGET)

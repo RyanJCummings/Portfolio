@@ -16,3 +16,4 @@ build/
 # C Stuff
 *.o
 *.exe
+valgrind*.*
