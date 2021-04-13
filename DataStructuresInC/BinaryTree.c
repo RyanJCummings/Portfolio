@@ -63,13 +63,13 @@ void free_tree_memory(Tree_node * root) {
 		return;
 	} else {
 		free_tree_memory(root->left);
-		free_tree_memory(root->right);
 		free(root);
+		free_tree_memory(root->right);
 	}
 }
 
 
-/*Tree_node* remove_node(Tree_node * root, int value) {
+Tree_node* remove_node(Tree_node * root, int value) {
 	// Base case: root is null
 	if (root == NULL) {
 		return root;
@@ -98,5 +98,5 @@ void free_tree_memory(Tree_node * root) {
 
 
 
-}*/
+}
 
