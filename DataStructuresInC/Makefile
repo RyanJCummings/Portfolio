@@ -10,7 +10,7 @@ DEPS	= $(wildcard *.h)
 all: $(TARGET)
 
 $(TARGET): $(OBJS)
-	$(CC) $(CFLAGS) -o $(TARGET) $(OBJS)
+	$(CC) $(CFLAGS) $(SRCS) -o $(TARGET)
 
 .PHONY: clean
 clean:
