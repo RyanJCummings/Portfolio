@@ -12,5 +12,5 @@ void free_tree_memory(Tree_node *);
 void print_node(Tree_node *);
 Tree_node* create_node(int);
 Tree_node* insert_node(Tree_node *, int);
-Tree_node* remove_node(int);
+Tree_node* remove_node(Tree_node *,int);
 #endif
