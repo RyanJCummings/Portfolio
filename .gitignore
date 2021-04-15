@@ -1,3 +1,7 @@
+*
+!*.*
+!*/
+
 # Kotlin / Gradle stuff
 .gradle
 build/
@@ -8,3 +12,8 @@ build/
 #IDE
 .idea/
 *.iml
+
+# C Stuff
+*.o
+*.exe
+valgrind*.*
