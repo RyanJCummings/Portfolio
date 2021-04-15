@@ -2,19 +2,19 @@
 #define STRUCTURES_AND_ALGS
 
 /* structs and function prototypes for BST */
-typedef struct Tree_node {
+typedef struct tree_node {
 	int value;
-	struct Tree_node *left;
-	struct Tree_node *right;
-} Tree_node;
+	struct tree_node *left;
+	struct tree_node *right;
+} tree_node;
 
-void free_tree_memory(Tree_node *);
-void print_node(Tree_node *);
-Tree_node* create_node(int);
-Tree_node* insert_node(Tree_node *, int);
-int print_inorder(Tree_node *);
-int print_preorder(Tree_node *);
-int print_postorder(Tree_node *);
-Tree_node* find_inorder_successor(Tree_node *); 
-Tree_node* remove_node(Tree_node *,int);
+void free_tree_memory(tree_node *);
+void print_node(tree_node *);
+tree_node* create_node(int);
+tree_node* insert_node(tree_node *, int);
+int print_inorder(tree_node *);
+int print_preorder(tree_node *);
+int print_postorder(tree_node *);
+tree_node* find_inorder_successor(tree_node *); 
+tree_node* remove_node(tree_node *,int);
 #endif

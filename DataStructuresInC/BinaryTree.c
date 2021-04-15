@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
 	printf("%s\n", "Hello from BST!");
 	
 	// Create the tree
-	Tree_node *tree = insert_node(NULL, 10);
+	tree_node *tree = insert_node(NULL, 10);
 	insert_node(tree, 5);
 	insert_node(tree, 7);
 	insert_node(tree, 20);
@@ -28,12 +28,12 @@ int main(int argc, char *argv[]) {
 }
 
 
-void print_node(Tree_node *node) {
+void print_node(tree_node *node) {
 	printf("Value: %d\n", node->value);
 }
 
-Tree_node* create_node(int value) {
-	Tree_node* new = (struct Tree_node*)malloc(sizeof(struct Tree_node));
+tree_node* create_node(int value) {
+	tree_node* new = (struct tree_node*)malloc(sizeof(struct tree_node));
 	new->value = value;
 	new->left = NULL;
 	new->right = NULL;
@@ -42,7 +42,7 @@ Tree_node* create_node(int value) {
 }
 
 // Inserts new node into tree
-Tree_node* insert_node(Tree_node* root, int value) {
+tree_node* insert_node(tree_node* root, int value) {
 	// If root is null, create a new root.
 	if (root == NULL) {
 		return create_node(value);
@@ -62,7 +62,7 @@ Tree_node* insert_node(Tree_node* root, int value) {
 }
 
 // Performs inorder traversal of tree printing the nodes at each visit
-int print_inorder(Tree_node *root) {
+int print_inorder(tree_node *root) {
 	if (root == NULL) {
 		return -1;
 	}
@@ -76,7 +76,7 @@ int print_inorder(Tree_node *root) {
 }
 
 // Performs preorder traversal of tree printing the nodes at each visit
-int print_preorder(Tree_node *root) {
+int print_preorder(tree_node *root) {
 	if (root == NULL) {
 		return -1;
 	}
@@ -90,7 +90,7 @@ int print_preorder(Tree_node *root) {
 }
 
 // Performs postorder traversal of tree printing the nodes at each visit
-int print_postorder(Tree_node *root) {
+int print_postorder(tree_node *root) {
 	if (root == NULL) {
 		return -1;
 	}
@@ -107,7 +107,7 @@ int print_postorder(Tree_node *root) {
 // Performs postorder traversal of tree freeing memory as it goes along
 // this has the effect of deleting the entire tree while 
 // protecting against memory leaks
-void free_tree_memory(Tree_node * root) {
+void free_tree_memory(tree_node * root) {
 	if(root == NULL) {
 		return;
 	} 
@@ -119,8 +119,8 @@ void free_tree_memory(Tree_node * root) {
 	}
 }
 
-Tree_node* find_inorder_successor(Tree_node* node) {
-	Tree_node *this = node;
+tree_node* find_inorder_successor(tree_node* node) {
+	tree_node *this = node;
 	
 	while(this && this->left !=NULL) {
 		this = this->left;
@@ -128,7 +128,7 @@ Tree_node* find_inorder_successor(Tree_node* node) {
 	return this;
 }
 
-Tree_node* remove_node(Tree_node *root, int value) {
+tree_node* remove_node(tree_node *root, int value) {
 	// Base case: root is null
 	if (root == NULL) {
 		return root;
@@ -148,20 +148,20 @@ Tree_node* remove_node(Tree_node *root, int value) {
 	else {
 		// No left child
 		if (root->left == NULL) {
-			Tree_node *temp = root->left;
+			tree_node *temp = root->left;
 			free(root);
 			return temp;
 		}
 
 		// No right child
 		if (root->right == NULL) {
-			Tree_node *temp = root->right;
+			tree_node *temp = root->right;
 			free(root);
 			return temp;
 		}
 
 		// root has two children
-		Tree_node *temp = find_inorder_successor(root->right);
+		tree_node *temp = find_inorder_successor(root->right);
 		root->value = temp->value;
 		root->right = remove_node(root->right, temp->value);
 	}
