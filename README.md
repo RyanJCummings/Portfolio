@@ -5,6 +5,14 @@ This portfolio contains projects that demonstrate coding techniques and problem 
 
 ## Subjects
 
+### Data Structures and Algorithms
+*This Section is under active development and not all algs appear yet.*
+- Binary Search Trees
+- Self-Balancing Trees
+- Graphs
+- Depth-First and Breadth-First Search
+- Dijkstra's Algorithm
+
 ### Web Development
 * diceRoller
     * Small full-stack web application
