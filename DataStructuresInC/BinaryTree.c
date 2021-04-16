@@ -4,7 +4,6 @@
 
 
 int main(int argc, char *argv[]) {
-	printf("%s\n", "Hello from BST!");
 	
 	// Create the tree
 	tree_node *tree = insert_node(NULL, 10);
