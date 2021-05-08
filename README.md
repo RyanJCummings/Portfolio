@@ -1,5 +1,5 @@
 # Portfolio
-### Author: Ryan Cummings, Junior Software Engineer
+### Author: Ryan Cummings, Software Engineer
 
 This portfolio contains projects that demonstrate coding techniques and problem solving.  Potential employers will see a variety of languages, domains, and frameworks showcasing flexiblity and coding fluency. This repository is being actively developed.  Much more code and documentation will be filled in over the next few weeks.  Thanks for your patience and please check back if you are interested in any of these projects. This README will be continually updated to reflect changes to the repository.
 
